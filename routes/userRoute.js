@@ -71,8 +71,8 @@ router.get('/createadmin', async (req, res) => {
   try {
     const user = new User({
       name: 'othman',
-      email: 'admin@example.com',
-      password: '1234',
+      email: 'othman@example.com',
+      password: '12345',
       image: './uploads/1597774796950.png',
       isAdmin: true,
     });
