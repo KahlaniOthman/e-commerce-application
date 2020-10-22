@@ -13,8 +13,8 @@
 ### 1. Clone repo
 
 ```
-$ git clone https://github.com/KahlaniOthman/reactjs-nodejs-app.git
-$ cd reactjs-nodejs-app
+$ git clone https://github.com/KahlaniOthman/e-commerce-application.git
+$ cd e-commerce-application
 ```
 
 ### 2. Install MongoDB
