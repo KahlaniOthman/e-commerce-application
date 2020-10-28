@@ -38,7 +38,7 @@ const Home = ({ setNav }) => {
   }, [active, dispatch, searchKeyword]);
   return (
     <>
-      <Carousel />
+      <Carousel listcat={listcat} />
       <div
         style={{
           display: "flex",
@@ -140,6 +140,35 @@ const Item = ({ data }) => {
   );
 };
 
+const listcat = [
+  {
+    title: "Cat1",
+    description: "Une description 1",
+    image: "http://lorempixel.com/output/cats-q-c-640-480-10.jpg",
+  },
+  {
+    title: "Cat2",
+    description: "Une description 2",
+    image: "http://lorempixel.com/output/cats-q-c-640-480-9.jpg",
+  },
+  {
+    title: "Un Titre",
+    description: "Une description",
+    image: "http://lorempixel.com/output/cats-q-c-640-480-8.jpg",
+  },
+  {
+    title: "Un Titre",
+    description: "Une description",
+    image: "http://lorempixel.com/output/cats-q-c-640-480-2.jpg",
+  },
+  {
+    title: "Un Titre",
+    description: "Une description",
+    image: "http://lorempixel.com/output/cats-q-c-640-480-1.jpg",
+  },
+];
+
+
 const listItems = [
   {
     title: "Free Shipping",
@@ -180,6 +209,8 @@ const list = [
     onClick: () => {},
   },
 ];
+
+
 
 const ProductCard = ({ data, setNav }) => {
   const cart = useSelector((state) => state.cart.cartItems);

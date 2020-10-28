@@ -62,6 +62,7 @@ const saveProduct = (product) => async (dispatch, getState) => {
           },
         }
       );
+      console.log(data,'imen')
       dispatch({ type: PRODUCT_SAVE_SUCCESS, payload: data });
     }
   } catch (error) {

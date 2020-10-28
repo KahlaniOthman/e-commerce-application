@@ -1,15 +1,15 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 
-export default () => (
+export default ({listcat}) => (
   <Carousel
     autoPlay
     className="carouselItems"
     showThumbs={false}
     showStatus={false}
   >
-    {list &&
-      list.map((el, index) => (
+    {
+      listcat.map((el, index) => (
         <div className="item" key={index}>
           <img alt="" src={el.image} className="carouselImage" />
           <div
@@ -31,30 +31,4 @@ export default () => (
   </Carousel>
 );
 
-const list = [
-  {
-    title: "Un Titre",
-    description: "Une description",
-    image: "http://lorempixel.com/output/cats-q-c-640-480-10.jpg",
-  },
-  {
-    title: "Un Titre",
-    description: "Une description",
-    image: "http://lorempixel.com/output/cats-q-c-640-480-9.jpg",
-  },
-  {
-    title: "Un Titre",
-    description: "Une description",
-    image: "http://lorempixel.com/output/cats-q-c-640-480-8.jpg",
-  },
-  {
-    title: "Un Titre",
-    description: "Une description",
-    image: "http://lorempixel.com/output/cats-q-c-640-480-2.jpg",
-  },
-  {
-    title: "Un Titre",
-    description: "Une description",
-    image: "http://lorempixel.com/output/cats-q-c-640-480-1.jpg",
-  },
-];
+
