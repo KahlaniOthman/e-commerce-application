@@ -1,21 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "./caroussel";
+import ProductCard from "./ProductCard";
 import { cls } from "reactutils";
 import { useSelector, useDispatch } from "react-redux";
 import { listProducts } from "../../actions/productActions";
-import { useHistory } from "react-router-dom";
-import { FormControlLabel } from "@material-ui/core";
-import Favorite from "@material-ui/icons/Favorite";
-import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
-import Checkbox from "@material-ui/core/Checkbox";
-import { addToFavor, removeFromFavor } from "../../actions/favorActions";
-import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import { addToCart, removeFromCart } from "../../actions/cartActions";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import Example from "../chat";
-import Rating from "../../components/Rating";
-
 import supportIcon from "./24-hours-support.png";
 import shippingIcon from "./icons8-free-shipping-50.png";
 import discountIcon from "./cart_discount_online_sale_shopping_store_tag_icon_123216.png";
@@ -212,129 +201,4 @@ const list = [
 
 
 
-const ProductCard = ({ data, setNav }) => {
-  const cart = useSelector((state) => state.cart.cartItems);
-  const favor = useSelector((state) => state.favor.favorItems);
 
-  const { rating, name, image, price, _id } = data;
-  const history = useHistory();
-  const dispatch = useDispatch();
-
-  const handleAddToFavor = (id) => {
-    dispatch(addToFavor(id));
-  };
-
-  const handleRemoveFromFavor = (id) => {
-    dispatch(removeFromFavor(_id));
-  };
-
-  const handleAddToCart = (id) => {
-    dispatch(addToCart(id, 1));
-  };
-
-  const handleRemoveFromCart = (id) => {
-    dispatch(removeFromCart(_id));
-  };
-
-  return (
-    <div
-      className="productCard"
-      style={{
-        margin: "16px",
-        padding: "8px",
-        width: "25em",
-        height: "auto",
-        cursor: "pointer",
-        position: "relative",
-      }}
-      onClick={() => {
-        setNav("");
-        history.push("/product/" + _id);
-      }}
-    >
-      <img
-        src={image}
-        alt="product"
-        width="100%"
-        height="250em"
-        className="productImage"
-      />
-
-      <h3
-        style={{
-          textAlign: "center",
-          fontWeight: "bold",
-          fontSize: "20px",
-          padding: "8px 0",
-        }}
-      >
-        {name}
-      </h3>
-      <div style={{ textAlign: "center" }}>
-        <Rating value={rating} />
-      </div>
-      <div
-        style={{
-          textAlign: "center",
-          fontWeight: "bold",
-          fontSize: "14px",
-          padding: "8px 0",
-        }}
-      >
-        {price} DT
-      </div>
-      <div
-        style={{
-          display: "flex",
-          position: "absolute",
-          top: "10px",
-          color: "rgb(255, 255, 255)",
-          left: "300px",
-        }}
-      >
-        <FormControlLabel
-          control={
-            <Checkbox
-              icon={
-                <FavoriteBorder style={{ fontSize: "28px", color: "red" }} />
-              }
-              checkedIcon={<Favorite style={{ fontSize: "28px" }} />}
-              checked={favor.map((el) => el.product).includes(_id)}
-              style={{ fontSize: "28px" }}
-              name="checkedH"
-            />
-          }
-          label=""
-          onClick={(e) => {
-            e.stopPropagation();
-            !favor.map((el) => el.product).includes(_id)
-              ? handleAddToFavor(_id)
-              : handleRemoveFromFavor(_id);
-          }}
-        />
-        <FormControlLabel
-          control={
-            <Checkbox
-              icon={
-                <ShoppingCartOutlinedIcon
-                  style={{ fontSize: "28px", color: "red" }}
-                />
-              }
-              checkedIcon={<ShoppingCartIcon style={{ fontSize: "28px" }} />}
-              checked={cart.map((el) => el.product).includes(_id)}
-              style={{ fontSize: "28px" }}
-              name="checkedH"
-            />
-          }
-          label=""
-          onClick={(e) => {
-            e.stopPropagation();
-            !cart.map((el) => el.product).includes(_id)
-              ? handleAddToCart(_id)
-              : handleRemoveFromCart(_id);
-          }}
-        />
-      </div>
-    </div>
-  );
-};

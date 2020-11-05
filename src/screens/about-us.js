@@ -31,7 +31,7 @@ function About() {
     counter(setCount2, 0, 398, 2500);
     counter(setCount3, 0, 480, 2900);
     counter(setCount4, 10, 500, 5420);
-  }, []);
+  });
   // counter(setCount1, 0, 607, 3000);
   // console.log("boucle infinie");
 

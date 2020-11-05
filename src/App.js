@@ -66,7 +66,7 @@ function App() {
             <Route path="/cart/:id?" component={CartScreen} />
             <Route
               path="/shop"
-              component={() => <HomeScreen setActive={setActive} />}
+              component={() => <HomeScreen setNav={setActive} />}
             />
             <Route
               path="/home"
